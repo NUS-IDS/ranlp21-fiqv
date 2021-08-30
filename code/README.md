@@ -57,7 +57,8 @@ You can now train the model using `models.repeat_q` in `training` mode. Here is 
 default parameter settings:
 
 ```bash
-python -m model.repeat_q train -ds_name=fipsq_triples --save_model ```
+python -m model.repeat_q train -ds_name=fipsq_triples --save_model
+```
 
 Your model will be saved to `/models/trained/repeat_q/` followed by either the path you passed in `-save_directory_name`
 or nothing if you didn't.
@@ -65,7 +66,8 @@ or nothing if you didn't.
 ### Inference
 The command for running inference with default settings:
 ```bash
-python -m model.repeat_q translate -ds_name=fipsq_triples -checkpoint_name=*a_checkpoint_name* -prediction_file_name=fipdq_triples```
+python -m model.repeat_q translate -ds_name=fipsq_triples -checkpoint_name=*a_checkpoint_name* -prediction_file_name=fipdq_triples
+```
 
 The checkpoint name is a name of a file located in `/models/trained/repeat_q`.
 The output predictions can be found in `/data/results/repeat_q`
