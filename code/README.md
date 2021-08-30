@@ -66,7 +66,7 @@ or nothing if you didn't.
 ### Inference
 The command for running inference with default settings:
 ```bash
-python -m model.repeat_q translate -ds_name=fipsq_triples -checkpoint_name=*a_checkpoint_name* -prediction_file_name=fipdq_triples
+python -m model.repeat_q translate -ds_name=fipsq_triples -checkpoint_name=*a_checkpoint_name* -prediction_file_name=fipsq_triples
 ```
 
 The checkpoint name is a name of a file located in `/models/trained/repeat_q`.
