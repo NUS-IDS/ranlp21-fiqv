@@ -31,6 +31,7 @@ an embedding matrix file for you.
 ### Training
 You can now train the model using `models.repeat_q` in `training` mode. Please refer to the arguments' descriptions for
 more information by running:
+### Important Note*** repeat_q is the model referred to as "FIQG" in the RANLP paper.
 ```bash
 python -m models.repeat_q --help
 ```
