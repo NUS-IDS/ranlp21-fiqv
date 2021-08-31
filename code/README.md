@@ -16,8 +16,40 @@ nltk.download('wordnet')
 nltk.download('averaged_perceptron_tagger')
 ```
 ## How to run FIQG
-### What you will need to provide
-#### Dataset
+#### FIRS Dataset
+For our datasets (FIRS), the processed data has been shared at https://github.com/NUS-IDS/ranlp21-fiqv/tree/main/processed_data. 
+Please edit the paths suitably under defs.py while training/testing the model. The model expects to find the files  the GloVE embeddings 
+a subdirectory called "fipsq_triples" along with the GloVE embeddings file.
+
+### Training
+You can now train the model using `models.repeat_q` in `training` mode. Here is command to train with
+default parameter settings:
+
+```bash
+python -m model.repeat_q train -ds_name=fipsq_triples --save_model
+```
+
+Your model will be saved to `/models/trained/repeat_q/` followed by either the path you passed in `-save_directory_name`
+or nothing if you didn't.
+
+### Inference
+The command for running inference with default settings:
+```bash
+python -m model.repeat_q translate -ds_name=fipsq_triples -checkpoint_name=*a_checkpoint_name* -prediction_file_name=fipsq_triples
+```
+
+The checkpoint name is a name of a file located in `/models/trained/repeat_q`.
+The output predictions can be found in `/data/results/repeat_q`
+### Other options
+Please refer to the arguments' descriptions for
+more information by running:
+```bash
+python -m model.repeat_q --help
+```
+
+
+### For processing your custom dataset
+
 You will need to provide 3 files `test.data.json`, `dev.data.json` and `train.data.json` which shall be arrays of
 elements with the following fields:
 - `base_question`: Base/original question
@@ -52,29 +84,3 @@ python -m model.repeat_q preprocess -ds_name=fipsq_triples
 By default, the script will look into `/data/raw_datasets/` for a directory
 with the name passed in `-ds_name`. You can also specify a full path by passing it to `-preprocess_data_dir`. Please
 refer back to the indications for GloVe above if you're using pretrained embeddings.
-### Training
-You can now train the model using `models.repeat_q` in `training` mode. Here is command to train with
-default parameter settings:
-
-```bash
-python -m model.repeat_q train -ds_name=fipsq_triples --save_model
-```
-
-Your model will be saved to `/models/trained/repeat_q/` followed by either the path you passed in `-save_directory_name`
-or nothing if you didn't.
-
-### Inference
-The command for running inference with default settings:
-```bash
-python -m model.repeat_q translate -ds_name=fipsq_triples -checkpoint_name=*a_checkpoint_name* -prediction_file_name=fipsq_triples
-```
-
-The checkpoint name is a name of a file located in `/models/trained/repeat_q`.
-The output predictions can be found in `/data/results/repeat_q`
-### Other options
-Please refer to the arguments' descriptions for
-more information by running:
-```bash
-python -m model.repeat_q --help
-```
-
