@@ -86,17 +86,6 @@ with the name passed in `-ds_name`. You can also specify a full path by passing 
 refer back to the indications for GloVe above if you're using pretrained embeddings.
 
 
-### UPDATE to preprocessing [June 6,2022]
-Added by gsdas: 
-Place the three data files (names expected to be train.data.json test.data.json dev.data.json) under [raw_data-dir/dataset_name_dir]=INPDIR
-cd to code directory and run
-
-python -m model.repeat_q preprocess -preprocess_data_dir=INPDIR -save_data OUTDIR -pretrained_embeddings_path=/path/to/glove.840B.300d.txt -voc_size=20000 -ds_name=dataset_name
-
-****Note the file and directory name conventions, can change voc_size to the desired vocabulary size
-
-
-
 
 
 
