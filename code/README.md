@@ -17,9 +17,13 @@ nltk.download('averaged_perceptron_tagger')
 ```
 ## How to run FIQG
 #### FIRS Dataset
-For our datasets (FIRS), the processed data has been shared at https://github.com/NUS-IDS/ranlp21-fiqv/tree/main/processed_data. 
-Please edit the paths suitably under defs.py while training/testing the model. The model expects to find the files  the GloVE embeddings 
-a subdirectory called "fipsq_triples" along with the GloVE embeddings file.
+For our datasets (FIRS), the processed data after feature extraction 
+has been shared at https://github.com/NUS-IDS/ranlp21-fiqv/tree/main/processed_data. 
+
+Please run the instructions in the README there first to extract the vocabulary and embeddings.[STEP-1]
+
+Next, edit the paths suitably under defs.py while training/testing the model. The specified data directory
+in defs.py should contain a subdirectory (repeat_q/dataset_name) which contain the processed dataset from the previous step [STEP-1].
 
 ### Training
 You can now train the model using `models.repeat_q` in `training` mode. Here is command to train with
